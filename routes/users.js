@@ -34,4 +34,22 @@ router.post("/", (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+
+
+// Delete a user
+router.delete("/:email", async (req, res, next) => {
+  const { email } = req.params;
+
+  try {
+
+    User.findOne({email}).deleteOne().exec();
+    res.json("User Deleted!");
+
+  } catch (err) {
+    next(err);
+  }
+
+});
+
+
 module.exports = router;

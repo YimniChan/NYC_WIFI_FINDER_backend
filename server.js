@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
 
 const app = express();
 
@@ -8,12 +9,15 @@ const app = express();
 app.use(bodyParser.json);
 
 //DB Config
-const mongoDB = process.env.DATABASE_URL;
-
-console.log(`your port is ${mongoDB}`);
+dotenv.config();
+const mongoDB = process.env.MONGO_URI;
 
 //connect to mongo
 mongoose
   .connect(mongoDB)
   .then(() => console.log("mongoDB Connected..."))
   .catch((err) => console.log(err));
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));

@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
-const Registration = mongoose.model('hotspotModel');
+const HotspotModel = mongoose.model('hotspotModel');
 
 // Route to serve user
 router.get('/',async (req, res, next)  => {

@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 const app = express();
 
 //bodyParser Middleware
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 
 //DB Config
 dotenv.config();
@@ -14,7 +14,12 @@ const mongoDB = process.env.MONGO_URI;
 
 //connect to mongo
 mongoose
-  .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(mongoDB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  })
   .then(() => console.log("mongoDB Connected..."))
   .catch((err) => console.log(err));
 

@@ -4,6 +4,7 @@ const User = require("../models/user.model");
 
 console.log("dog");
 
+
 //Get All user
 router.get("/", (req, res) => {
    User.find()

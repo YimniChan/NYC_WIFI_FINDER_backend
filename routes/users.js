@@ -1,18 +1,18 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const router = express.Router();
 const User = require("../models/user.model");
 
-router.route("/").get((req, res) => {
+console.log("dog");
+router.get((req, res) => {
   User.find()
     .then((users) => res.json(users))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
 router.route("/add").post((req, res) => {
-  const username = req.body.username;
+  const firstName = req.body.firstName;
 
-  const newUser = new User({ username });
+  const newUser = new firsName({ firstName });
 
   newUser
     .save()

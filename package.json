@@ -5,13 +5,25 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "node server.js",
     "server": "modemon server.js"
+=======
+    "server": "nodemon server.js"
+>>>>>>> fa4d0ec2de2bd86f47b34f155c656d7226c71730
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.1",
     "mongoose": "^5.9.19"
+=======
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19",
+    "nodemon": "^2.0.4"
+>>>>>>> fa4d0ec2de2bd86f47b34f155c656d7226c71730
   }
 }

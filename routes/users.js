@@ -1,26 +1,23 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+const mongoose = require("mongoose");
 const router = express.Router();
-const UserModel = mongoose.model('userModel');
+const User = require("../models/user.model");
 
-// Route to serve user
-router.get('/',async (req, res, next)  => {
-  
-    
+router.route("/").get((req, res) => {
+  User.find()
+    .then((users) => res.json(users))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
-// Route to handle adding a user
-router.post("/", async (req, res, next) => {
+router.route("/add").post((req, res) => {
+  const username = req.body.username;
 
+  const newUser = new User({ username });
 
+  newUser
+    .save()
+    .then(() => res.json("User added!"))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
-// Route to handle edit a user
-router.put("/", async (req, res, next) => {
-
-
-});
-
-
-
-  module.exports = router;
+module.exports = router;

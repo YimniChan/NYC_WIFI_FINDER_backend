@@ -1,11 +1,9 @@
-  
 var express = require("express");
 var router = express.Router();
 
 // Subrouters;
 const hotspotsRouter = require("./hotspots");
 const usersRouter = require("./users");
-
 
 // Mount our subrouters to assemble our apiRouter;
 router.use("/hotspots", hotspotsRouter);
@@ -19,4 +17,4 @@ router.use((req, res, next) => {
 });
 
 // Export our apiRouter, so that it can be used by our main app in app.js;
-module.exports = router
+module.exports = router;

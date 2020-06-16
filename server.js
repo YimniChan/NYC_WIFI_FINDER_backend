@@ -24,7 +24,7 @@ mongoose
   .catch((err) => console.log(err));
 
 //require router files
-const hotSpotsRouter = require("./routes/hotSpots");
+const hotSpotsRouter = require("./routes/hotspots");
 const usersRouter = require("./routes/users");
 
 //use router files

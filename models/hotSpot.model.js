@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const hotsportModel = new Schema({
+const hotSpotSchema = new Schema({
   name: { type: String, required: true, unique: true },
   address: { type: String, required: true },
   zipCode: { type: Number, required: true },
@@ -17,4 +17,6 @@ const hotsportModel = new Schema({
   */
 });
 
-module.exports = mongoose.model("hotsportModel", hotsportModel);
+const hotSpots = mongoose.model("hotSpots", hotSpotSchema);
+
+module.exports = hotSpots;

@@ -1,17 +1,25 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const router = express.Router();
-const Registration = mongoose.model("hotspotModel");
+const hotSpot = require("../models/hotSpot.model");
 
-// Route to serve user
-router.get("/", async (req, res, next) => {});
+//find all current hotSpot locations
+router.route("/").get((req, res) => {
+  hotSpot
+    .find()
+    .then((hotSpots) => res.json(hotSpots))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
 
-// Route to handle adding a user
-router.post("/", async (req, res, next) => {});
+router.route("/add").post((req, res) => {
+  const hotSpotName = req.body.name;
+  const hotSpotAddress = req.body.address;
+  const hotSpotZipcode = Number(req.body.zipCode);
 
-// Route to handle edit a user
-router.put("/", async (req, res, next) => {});
-
-//Route to receive user delete hotstop request??
+  const newHotSpot = new hotSpot({
+    hotSpotName,
+    hotSpotAddress,
+    hotSpotZipcode,
+  });
+});
 
 module.exports = router;

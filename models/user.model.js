@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
-const userModel = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true },
@@ -8,4 +10,6 @@ const userModel = new mongoose.Schema({
   //password encryption
 });
 
-module.exports = mongoose.model("userModel", userModel);
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 
 const app = express();
 
-//bodyparser Middleware
+//bodyParser Middleware
 app.use(bodyParser.json);
 
 //DB Config
@@ -17,6 +17,14 @@ mongoose
   .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("mongoDB Connected..."))
   .catch((err) => console.log(err));
+
+//require router files
+const hotSpotsRouter = require("./routes/hotSpots");
+const usersRouter = require("./routes/users");
+
+//use router files
+app.use("/hotSpots", hotSpotsRouter);
+app.use("/users", usersRouter);
 
 const port = process.env.PORT || 5000;
 

@@ -6,6 +6,7 @@ const hotsportModel = new mongoose.Schema({
   zipCode: { type: Number(5)},
   // 
   //rating: { type: float, min: 0.00, max: 5.00},
+  //add the write in time
 });
 
 module.exports = mongoose.model('hotsportModel',hotsportModel);

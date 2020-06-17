@@ -32,7 +32,7 @@ router.post("/", (req, res) => {
           const newUser = new User({ firstName,lastName, email, password });
           newUser
             .save()
-            .then(() => res.json("User added!"))
+            .then(() => res.json("User added!").send(newUser))
             .catch((err) => res.status(400).json("Error: " + err));
 });
 
@@ -53,7 +53,7 @@ router.put("/:emailParams" , async (req,res) =>{
               doc.password = password;
             
               await doc.save();
-              res.send("Sucessful Edit");
+              res.json(doc);
             }
             catch (err){
               res.status(400).json("Error: " + err);

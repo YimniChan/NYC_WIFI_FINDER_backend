@@ -21,6 +21,6 @@ const hotSpotSchema = new Schema({
   */
 });
 
-const hotSpots = mongoose.model("hotSpots", hotSpotSchema);
+const hotSpots = mongoose.model("hotSpot", hotSpotSchema);
 
 module.exports = hotSpots;

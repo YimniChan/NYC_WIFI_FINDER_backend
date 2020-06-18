@@ -25,8 +25,6 @@ mongoose
   .connect(mongoDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-//    useFindAndModify: false,
-//    useCreateIndex: true,
   })
   .then(() => console.log("mongoDB Connected..."))
   .catch((err) => console.log(err));
@@ -37,11 +35,9 @@ mongoose
 
 //require router files
 const hotSpotsRouter = require("./routes/hotspots");
-const usersRouter = require("./routes/users");
 
 //use router files
 app.use("/hotSpots", hotSpotsRouter);
-app.use("/users", usersRouter);
 
 const port = process.env.PORT || 5000;
 

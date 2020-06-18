@@ -6,11 +6,11 @@ console.log("cat");
 
 //find all current hotSpot locations
 router.get("/", (req, res) => {
-  //   hotSpot
-  //     // .find()
-  //     // .then((hotSpots) => res.json(hotSpots))
-  //     // .catch((err) => res.status(400).json("Error: " + err));
-  res.send({ toy: 213 });
+    hotSpot
+      .find()
+      .then((hotSpots) => res.json(hotSpots))
+      .catch((err) => res.status(400).json("Error: " + err));
+  //res.send({ toy: 213 });
 });
 
 router.route("/add").post((req, res) => {

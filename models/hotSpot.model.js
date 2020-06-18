@@ -14,19 +14,7 @@ const hotSpotSchema = new Schema({
   zipcode: { type: Number, required: true }, 
   latitude: { type: Number },
   longitudes: { type: Number },
-  // name: { type: String, required: true, unique: true },
-  // address: { type: String, required: true },
-  // type:{type: String, }
-  /*  
-  zipCode 5 digit limit add from front end
-  location: {
-    streetAddress: { type: String, required: true, unique: true},
-    city: { type: String, required: true},
-    state: { type: String, required: true},
-    zipCode: { type: Number, required: true}
-  },
 
-  */
 });
 
 const hotSpots = mongoose.model("hotSpot", hotSpotSchema);

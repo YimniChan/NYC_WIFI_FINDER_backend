@@ -18,7 +18,7 @@ if (!mongoDB) {
 }
 //connect to model
 require("./models/hotSpot.model");
-require("./models/user.model");
+
 
 //connect to mongo
 mongoose
@@ -27,11 +27,18 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => console.log("mongoDB Connected..."))
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err)
+  );
+
+  // mongoose.connection
+  // .once("open", ()=> console.log('Connected'))
+  // .on('("err', (error)=> {
+  //   console.log("errrrrrrrrrrr", error)
+  // });
+
 
 // Parsing requests into JSON
 //app.use(bodyParser.json());
-
 
 //require router files
 const hotSpotsRouter = require("./routes/hotspots");

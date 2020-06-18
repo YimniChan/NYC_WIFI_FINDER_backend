@@ -31,8 +31,6 @@ mongoose
   .then(() => console.log("mongoDB Connected..."))
   .catch((err) => console.log(err));
 
-// Adding cors middleware to app to relax CORS error
-app.use(cors());
 
 // Parsing requests into JSON
 app.use(bodyParser.json());

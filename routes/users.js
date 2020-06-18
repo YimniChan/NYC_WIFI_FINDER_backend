@@ -4,7 +4,6 @@ const User = require("../models/user.model");
 
 console.log("dog");
 
-
 //Get All user
 router.get("/", (req, res) => {
    User.find()
@@ -21,7 +20,6 @@ router.get(`/find:email`, (req, res) => {
    .then((users) => res.json(users))
    .catch((err) => res.status(400).json("Error: " + err));
 });
-
 
 //Add a new user
 router.post("/", (req, res) => {

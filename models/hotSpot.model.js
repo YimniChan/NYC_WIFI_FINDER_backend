@@ -12,8 +12,8 @@ const hotSpotSchema = new Schema({
   boroughName: { type: String, required: true },
   NeighborhoodTA:{ type: String, required: true }, 
   zipcode: { type: Number, required: true }, 
-  latitude: { type: Float32Array },
-  longitudes: { type: Float32Array },
+  latitude: { type: Number },
+  longitudes: { type: Number },
   // name: { type: String, required: true, unique: true },
   // address: { type: String, required: true },
   // type:{type: String, }

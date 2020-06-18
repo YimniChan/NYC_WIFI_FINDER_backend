@@ -15,13 +15,19 @@ router.get("/", (req, res) => {
 
 router.post("/add",(req, res) => {
   const hotSpotName = req.body.name;
+  const hotSpotProvider = req.body.Provider
   const hotSpotAddress = req.body.address;
   const hotSpotZipcode = Number(req.body.zipCode);
-
+  const hotSpotWifiType = req.body.wifitype;
+  const hotSpotType = req.body.type;
+  
   const newHotSpot = new hotSpot({
     hotSpotName,
+    hotSpotProvider,
     hotSpotAddress,
     hotSpotZipcode,
+    hotSpotWifiType,
+    hotSpotType,
   });
 });
 

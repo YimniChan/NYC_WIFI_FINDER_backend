@@ -49,7 +49,7 @@ mongoose
 //require router files
 const hotSpotsRouter = require("./routes/hotspots");
 const hotSpots = require("./models/hotSpot.model");
-const { db } = require("./models/hotSpot.model");
+
 
 
 
@@ -62,11 +62,14 @@ app.use("/hotSpots", hotSpotsRouter);
 //POPULATE DB WITH FROM THE JSON API
 //ONLY POPULATES WHEN COLECTION IS EMPTY.
 
-hotSpots.count({}, function( err, count){
-  console.log( "Population array with api" );
-  
+
+
+hotSpots.countDocuments({ }, function (err, count) {
+ 
 if(count == 0)
 {
+
+  console.log( "Population array with api" );
           var i;
           var aDocument = []
           for( i =0; i < converted.length; i++ )

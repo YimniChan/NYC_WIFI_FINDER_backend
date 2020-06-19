@@ -68,22 +68,22 @@ hotSpots.count({}, function( err, count){
 if(count == 0)
 {
           var i;
-          var stuff = []
+          var aDocument = []
           for( i =0; i < converted.length; i++ )
           {
-            stuff=[{name : converted[i].Name,
-              location: converted[i].Location,
-              city: converted[i].City,
-              boroughName: converted[i]['Borough Name'],
-              zipcode: converted[i].City,
-              latitude: converted[i].Latitude,
-              longitudes: converted[i].Longitude,
-              type: converted[i].Type,
-              provider: converted[i].Provider,
-              ssid: converted[i].SSID,
-                  } 
+            aDocument=[{name : converted[i].Name,
+                    location: converted[i].Location,
+                    city: converted[i].City,
+                    boroughName: converted[i]['Borough Name'],
+                    zipcode: converted[i].City,
+                    latitude: converted[i].Latitude,
+                    longitudes: converted[i].Longitude,
+                    type: converted[i].Type,
+                    provider: converted[i].Provider,
+                    ssid: converted[i].SSID,
+                     } 
                   ]
-            hotSpots.collection.insertMany(stuff, function (err, docs) {
+            hotSpots.collection.insertMany(aDocument, function (err, docs) {
               if (err){ 
               return console.error(err);
               } 

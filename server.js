@@ -75,7 +75,7 @@ if(count == 0)
                     location: converted[i].Location,
                     city: converted[i].City,
                     boroughName: converted[i]['Borough Name'],
-                    zipcode: converted[i].City,
+                    zipcode: converted[i].Postcode,
                     latitude: converted[i].Latitude,
                     longitudes: converted[i].Longitude,
                     type: converted[i].Type,

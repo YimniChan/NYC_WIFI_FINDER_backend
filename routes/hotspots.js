@@ -41,6 +41,15 @@ router.post("/add",(req, res) => {
   res.send(newHotSpot);
 });
 
-router.delete
+router.delete("/:id",  (req, res, next) => {
+  const { id } = req.params;
+
+  hotSpot
+  .findByPk(id)
+  .then((hotSpots) => res.json(hotSpots).distroy())
+  .catch((err) => res.status(400).json("Error: " + err));
+
+  }
+});
 
 module.exports = router;

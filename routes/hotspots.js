@@ -10,17 +10,19 @@ router.get("/", (req, res) => {
       .find()
       .then((hotSpots) => res.json(hotSpots))
       .catch((err) => res.status(400).json("Error: " + err));
-  res.send({ toy: 213 });
+ // res.send({ toy: 213 });
 });
 
+//change to match the model
 router.post("/add",(req, res) => {
-  const hotSpotName = req.body.name;
-  const hotSpotProvider = req.body.Provider
-  const hotSpotAddress = req.body.address;
+  const hotSpotName = req.body.ssid;
+  const hotSpotProvider = req.body.provider
+  const hotSpotAddress = req.body.borough;
   const hotSpotZipcode = Number(req.body.zipCode);
-  const hotSpotWifiType = req.body.wifitype;
+  const hotSpotWifiType = req.body.boroughName;
   const hotSpotType = req.body.type;
-  
+
+
   const newHotSpot = new hotSpot({
     hotSpotName,
     hotSpotProvider,
@@ -29,13 +31,8 @@ router.post("/add",(req, res) => {
     hotSpotWifiType,
     hotSpotType,
   });
+
+  res.send(newHotSpot);
 });
-
-// SSID: TransitWirelessWiFi
-// Provider: Transit Wireless
-// Borough: Brooklyn
-// Wifi-Session: Free
-// Location-Type: Subway Station
-
 
 module.exports = router;

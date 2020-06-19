@@ -13,30 +13,34 @@ router.get("/", (req, res) => {
  res.send({ toy: 213 });
 });
 
-//change to match the model
-// router.post("/add",(req, res) => {
-//   const hotSpotName = req.body.ssid;
-//   const hotSpotProvider = req.body.provider
-//   const hotSpotAddress = req.body.borough;
-//   const hotSpotZipcode = Number(req.body.zipCode);
-//   const hotSpotWifiType = req.body.boroughName;
-//   const hotSpotType = req.body.type;
+// change to match the model
+router.post("/add",(req, res) => {
 
-  // const hotSpotBorough = req.body.borough;
-  // const hotSpotType = req.body.type;
-  // const hotSpotProvider = req.body.provider;
-  // const hotSpotNeighbor = req.body.NeighborhoodTA;
+  const hotSpotName = req.body.ssid;
+  const hotSpotProvider = req.body.provider
+  const hotSpotLocation = req.body.location;
+  const hotSpotCity= req.body.city;
+  const hotSpotZipcode = Number(req.body.zipCode);
+  const hotSpotLatitude=req.body.latitude;
+  const hotSpotLongitudes=req.body.longitudes;
+  const hotSpotType = req.body.type;
+  const hotSpotlocationType = req.body.boroughName;
 
-//   const newHotSpot = new hotSpot({
-//     hotSpotName,
-//     hotSpotProvider,
-//     hotSpotAddress,
-//     hotSpotZipcode,
-//     hotSpotWifiType,
-//     hotSpotType,
-//   });
+  const newHotSpot = new hotSpot({
+    hotSpotName,
+    hotSpotProvider,
+    hotSpotLocation,
+    hotSpotCity,
+    hotSpotZipcode,
+    hotSpotLatitude,
+    hotSpotLongitudes,
+    hotSpotType,
+    hotSpotlocationType,
+  });
 
-//   res.send(newHotSpot);
-// });
+  res.send(newHotSpot);
+});
+
+router.delete
 
 module.exports = router;

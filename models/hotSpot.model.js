@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const hotSpotSchema = new Schema({
   // borough:{ type: String, required: false },
-  name: { type: String, required: true },
+  name: { type: String, },
   location:{ type: String, required: true }, 
   city: { type: String, required: true }, 
+  zipcode: { type: Number, required: true },
   boroughName: { type: String, required: true },
-  NeighborhoodTA:{ type: String, required: true }, 
-  zipcode: { type: Number, required: true }, 
+  NeighborhoodTA:{ type: String, required: true },  
   latitude: { type: Number },
   longitudes: { type: Number },
   type: { type: String, required: true }, 

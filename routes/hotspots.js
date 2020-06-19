@@ -22,10 +22,11 @@ router.post("/add",(req, res) => {
   const hotSpotZipcode = req.body.zipCode;
   const hotSpotLatitude = req.body.latitude;
   const hotSpotLongitudes = req.body.longitudes; 
+  // const hotSpotBoroughName = req.body.boroughName;
+
   // const hotSpotBorough = req.body.borough;
   // const hotSpotType = req.body.type;
   // const hotSpotProvider = req.body.provider;
-  // const hotSpotBoroughName = req.body.boroughName;
   // const hotSpotNeighbor = req.body.NeighborhoodTA;
 
   const newHotSpot = new hotSpot({
@@ -36,6 +37,7 @@ router.post("/add",(req, res) => {
    hotSpotZipcode,
    hotSpotLatitude,
    hotSpotLongitudes,
+   //hotSpotBoroughName
   });
 
   res.send(newHotSpot);

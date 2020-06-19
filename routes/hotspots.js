@@ -2,43 +2,93 @@ const express = require("express");
 const router = express.Router();
 const hotSpot = require("../models/hotSpot.model");
 
-console.log("cat");
 
-//find all current hotSpot locations
+//GET all location
 router.get("/", (req, res) => {
-    hotSpot
-      .find()
-      .then((hotSpots) => res.json(hotSpots))
-      .catch((err) => res.status(400).json("Error: " + err));
- // res.send({ toy: 213 });
+        hotSpot
+          .find()
+          .then((hotSpots) => res.json(hotSpots))
+          .catch((err) => res.status(400).json("Error: " + err));
 });
 
-//change to match the model
+
+
+//ADD location
 router.post("/add",(req, res) => {
-  const hotSpotName = req.body.name;
-  const hotSpotLocation = req.body.location;
-  const hotSpotCity = req.body.city;
-  const hotSpotSsid = req.body.ssid;
-  const hotSpotZipcode = req.body.zipCode;
-  const hotSpotLatitude = req.body.latitude;
-  const hotSpotLongitudes = req.body.longitudes; 
-  // const hotSpotBorough = req.body.borough;
-  // const hotSpotType = req.body.type;
-  // const hotSpotProvider = req.body.provider;
-  // const hotSpotBoroughName = req.body.boroughName;
-  // const hotSpotNeighbor = req.body.NeighborhoodTA;
 
-  const newHotSpot = new hotSpot({
-   hotSpotName,
-   hotSpotLocation,
-   hotSpotCity,
-   hotSpotSsid,
-   hotSpotZipcode,
-   hotSpotLatitude,
-   hotSpotLongitudes,
-  });
+          const {name, location, city, 
+                boroughName, zipcode, latitude,
+                longtiudes, type, provider,
+                ssid} = req.body;
+        
+      //Creates new hotspot document in the collection
+          const newHotSpot = new hotSpot({
+          name,
+          location,
+          city,
+          boroughName,
+          zipcode,
+          latitude,
+          longtiudes,
+          type,
+          provider,
+          ssid
+          });
 
-  res.send(newHotSpot);
-});
+          newHotSpot
+              .save()
+              .then(() => res.json(newHotSpot))
+              .catch((err) => res.statusMessage(400).json("Error: " +err))
+
+})
+
+
+//DELETE location based on the latitude
+router.delete("/delete", (req, res) =>{
+
+          const{latitude} = req.body;
+
+          try{
+            hotSpot.findOne({latitude}).deleteOne().exec();
+            res.json("Deleted location")
+          }
+          catch(err){
+            res.status(400).json("Error: " + err);
+          }
+})
+
+
+//EDIT location information based on the latitude
+router.put("/edit", async (req, res) => {
+
+        const {name, location, city, 
+          boroughName, zipcode, latitude,
+          longtiudes, type, provider,
+          ssid} = req.body;
+
+          try{
+              let doc = await hotSpot.findOne({latitude});
+              doc.name = name;
+              doc.location = location;
+              doc.city = city;
+              doc.boroughName = boroughName;
+              doc.zipcode = zipcode;
+              doc.latitude = latitude;
+              doc.longtiudes = longtiudes;
+              doc.type = type;
+              doc.provider = provider;
+              doc.ssid = ssid;
+
+              await doc.save();
+              res.json(doc);
+          }
+          catch(err){
+            res.status(400).json("Error: " + err);
+          }
+      
+})
+
+
+
 
 module.exports = router;

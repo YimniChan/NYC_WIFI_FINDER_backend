@@ -10,37 +10,33 @@ router.get("/", (req, res) => {
       .find()
       .then((hotSpots) => res.json(hotSpots))
       .catch((err) => res.status(400).json("Error: " + err));
- // res.send({ toy: 213 });
+ res.send({ toy: 213 });
 });
 
 //change to match the model
-router.post("/add",(req, res) => {
-  const hotSpotName = req.body.name;
-  const hotSpotLocation = req.body.location;
-  const hotSpotCity = req.body.city;
-  const hotSpotSsid = req.body.ssid;
-  const hotSpotZipcode = req.body.zipCode;
-  const hotSpotLatitude = req.body.latitude;
-  const hotSpotLongitudes = req.body.longitudes; 
-  // const hotSpotBoroughName = req.body.boroughName;
+// router.post("/add",(req, res) => {
+//   const hotSpotName = req.body.ssid;
+//   const hotSpotProvider = req.body.provider
+//   const hotSpotAddress = req.body.borough;
+//   const hotSpotZipcode = Number(req.body.zipCode);
+//   const hotSpotWifiType = req.body.boroughName;
+//   const hotSpotType = req.body.type;
 
   // const hotSpotBorough = req.body.borough;
   // const hotSpotType = req.body.type;
   // const hotSpotProvider = req.body.provider;
   // const hotSpotNeighbor = req.body.NeighborhoodTA;
 
-  const newHotSpot = new hotSpot({
-   hotSpotName,
-   hotSpotLocation,
-   hotSpotCity,
-   hotSpotSsid,
-   hotSpotZipcode,
-   hotSpotLatitude,
-   hotSpotLongitudes,
-   //hotSpotBoroughName
-  });
+//   const newHotSpot = new hotSpot({
+//     hotSpotName,
+//     hotSpotProvider,
+//     hotSpotAddress,
+//     hotSpotZipcode,
+//     hotSpotWifiType,
+//     hotSpotType,
+//   });
 
-  res.send(newHotSpot);
-});
+//   res.send(newHotSpot);
+// });
 
 module.exports = router;

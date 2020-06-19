@@ -48,7 +48,6 @@ router.delete("/:id",  (req, res, next) => {
   .findByPk(id)
   .then((hotSpots) => res.json(hotSpots).distroy())
   .catch((err) => res.status(400).json("Error: " + err));
-
   }
 });
 

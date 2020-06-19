@@ -10,10 +10,10 @@ router.get("/", (req, res) => {
       .find()
       .then((hotSpots) => res.json(hotSpots))
       .catch((err) => res.status(400).json("Error: " + err));
- // res.send({ toy: 213 });
+//  res.send({ toy: 213 });
 });
 
-//change to match the model
+
 router.post("/add",(req, res) => {
   const hotSpotName = req.body.name;
   const hotSpotLocation = req.body.location;
@@ -37,8 +37,11 @@ router.post("/add",(req, res) => {
    hotSpotLatitude,
    hotSpotLongitudes,
   });
+  newHotSpot
+      .save()
+      .then(() => res.json("HotSpot ADDED!").send(newHotSpot))
+      .catch((err) => res.statusMessage(400).json("Error: " +err));
 
-  res.send(newHotSpot);
-});
+})
 
 module.exports = router;

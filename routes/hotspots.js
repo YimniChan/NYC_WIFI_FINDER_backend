@@ -15,11 +15,11 @@ router.get("/", (req, res) => {
 
 
 router.post("/add",(req, res) => {
-  const hotSpotName = req.body.name;
-  const hotSpotLocation = req.body.location;
-  const hotSpotCity = req.body.city;
-  const hotSpotSsid = req.body.ssid;
-  const hotSpotZipcode = req.body.zipCode;
+  const hotSpotName = req.body.Name;
+  const hotSpotLocation = req.body.Location;
+  const hotSpotCity = req.body.City;
+  const hotSpotSsid = req.body.SSID;
+  const hotSpotZipcode = req.body.ZipCode;
   const hotSpotLatitude = req.body.latitude;
   const hotSpotLongitudes = req.body.longitudes; 
   // const hotSpotBorough = req.body.borough;
@@ -39,7 +39,7 @@ router.post("/add",(req, res) => {
   });
   newHotSpot
       .save()
-      .then(() => res.json("HotSpot ADDED!").send(newHotSpot))
+      .then(() => res.json(newHotSpot)
       .catch((err) => res.statusMessage(400).json("Error: " +err));
 
 })

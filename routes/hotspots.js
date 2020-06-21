@@ -12,6 +12,19 @@ router.get("/", (req, res) => {
 });
 
 
+//GET borough location
+router.get("/closeBy", (req, res) => {
+
+    const {boroughName} = req.body;
+
+  hotSpot
+    .find({boroughName})
+    .then((hotSpots) => res.json(hotSpots))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+
+
 
 //ADD location
 router.post("/add",(req, res) => {

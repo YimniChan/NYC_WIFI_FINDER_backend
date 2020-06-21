@@ -74,16 +74,16 @@ if(count == 0)
           var aDocument = []
           for( i =0; i < converted.length; i++ )
           {
-            aDocument=[{name : converted[i].Name,
-                    location: converted[i].Location,
-                    city: converted[i].City,
+            aDocument=[{
+                    name : converted[i].Name,
                     boroughName: converted[i]['Borough Name'],
-                    zipcode: converted[i].Postcode,
+                    type: converted[i].Type,
+                    zipCode: converted[i].Postcode,
+                    provider: converted[i].Provider,
+                    ssid: converted[i].SSID,    
+                    locationType: converted[i].Location_T,
                     latitude: converted[i].Latitude,
                     longitudes: converted[i].Longitude,
-                    type: converted[i].Type,
-                    provider: converted[i].Provider,
-                    ssid: converted[i].SSID,
                      } 
                   ]
             hotSpots.collection.insertMany(aDocument, function (err, docs) {

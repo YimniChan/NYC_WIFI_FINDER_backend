@@ -16,23 +16,22 @@ router.get("/", (req, res) => {
 //ADD location
 router.post("/add",(req, res) => {
 
-          const {name, location, city, 
-                boroughName, zipcode, latitude,
-                longtiudes, type, provider,
-                ssid} = req.body;
+          const {name, boroughName, zipCode,
+                type, locationType,provider,ssid,
+                latitude,longitudes
+                } = req.body;
         
       //Creates new hotspot document in the collection
           const newHotSpot = new hotSpot({
-          name,
-          location,
-          city,
-          boroughName,
-          zipcode,
-          latitude,
-          longtiudes,
-          type,
-          provider,
-          ssid
+            name, 
+            boroughName,
+            zipCode,
+            type, 
+            locationType,
+            provider, 
+            ssid,
+            latitude,
+            longitudes            
           });
 
           newHotSpot
@@ -61,24 +60,22 @@ router.delete("/delete", (req, res) =>{
 //EDIT location information based on the latitude
 router.put("/edit", async (req, res) => {
 
-        const {name, location, city, 
-          boroughName, zipcode, latitude,
+        const {name, 
+          boroughName, zipCode ,latitude,
           longtiudes, type, provider,
-          ssid} = req.body;
+          locationType,ssid} = req.body;
 
           try{
               let doc = await hotSpot.findOne({latitude});
               doc.name = name;
-              doc.location = location;
-              doc.city = city;
               doc.boroughName = boroughName;
-              doc.zipcode = zipcode;
-              doc.latitude = latitude;
-              doc.longtiudes = longtiudes;
+              doc.zipCode = zipCode;
               doc.type = type;
+              doc.locationType = locationType;
               doc.provider = provider;
               doc.ssid = ssid;
-
+              doc.latitude = latitude;
+              doc.longtiudes = longtiudes;
               await doc.save();
               res.json(doc);
           }

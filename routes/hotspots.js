@@ -25,6 +25,71 @@ router.get("/closeBy:boroughName", (req, res) => {
 
 
 
+//GET all wifi in Manhattan
+router.get("/manhattan", (req, res) => {
+
+  const boroughName = "Manhattan"  
+
+hotSpot
+  .find({boroughName})
+  .then((hotSpots) => res.json(hotSpots))
+  .catch((err) => res.status(400).json("Error: " + err));
+});
+
+
+//GET all wifi in Queens
+router.get("/queens", (req, res) => {
+
+  const boroughName = "Queens"  
+
+hotSpot
+  .find({boroughName})
+  .then((hotSpots) => res.json(hotSpots))
+  .catch((err) => res.status(400).json("Error: " + err));
+});
+
+
+
+//Get all wifi in Staten Island
+router.get("/statenisland", (req, res) => {
+
+  const boroughName = "Staten Island"  
+
+hotSpot
+  .find({boroughName})
+  .then((hotSpots) => res.json(hotSpots))
+  .catch((err) => res.status(400).json("Error: " + err));
+});
+
+
+//Get all brooklyn in Brookyln
+router.get("/brooklyn", (req, res) => {
+
+  const boroughName = "Brooklyn"  
+
+hotSpot
+  .find({boroughName})
+  .then((hotSpots) => res.json(hotSpots))
+  .catch((err) => res.status(400).json("Error: " + err));
+});
+
+
+
+//Get all wifi in Bronx
+router.get("/bronx", (req, res) => {
+
+  const boroughName = "Bronx"  
+
+hotSpot
+  .find({boroughName})
+  .then((hotSpots) => res.json(hotSpots))
+  .catch((err) => res.status(400).json("Error: " + err));
+});
+
+
+
+
+
 
 //ADD location
 router.post("/add",(req, res) => {

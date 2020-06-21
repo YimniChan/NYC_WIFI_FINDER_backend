@@ -13,9 +13,9 @@ router.get("/", (req, res) => {
 
 
 //GET borough location
-router.get("/closeBy", (req, res) => {
+router.get("/closeBy:boroughName", (req, res) => {
 
-    const {boroughName} = req.body;
+    const {boroughName} = req.params;
 
   hotSpot
     .find({boroughName})

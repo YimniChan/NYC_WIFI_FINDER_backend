@@ -95,7 +95,7 @@ hotSpot
 router.post("/add",(req, res) => {
 
           const {name, boroughName, zipCode,
-                type, locationType,provider,ssid,
+                type, locationType,location,provider,ssid,
                 latitude,longitudes
                 } = req.body;
         
@@ -106,6 +106,7 @@ router.post("/add",(req, res) => {
             zipCode,
             type, 
             locationType,
+            location,
             provider, 
             ssid,
             latitude,
@@ -140,7 +141,7 @@ router.put("/edit", async (req, res) => {
 
         const {name, 
           boroughName, zipCode ,latitude,
-          longtiudes, type, provider,
+          longtiudes, type, provider,location,
           locationType,ssid} = req.body;
 
           try{
@@ -150,6 +151,7 @@ router.put("/edit", async (req, res) => {
               doc.zipCode = zipCode;
               doc.type = type;
               doc.locationType = locationType;
+              doc.location = location;
               doc.provider = provider;
               doc.ssid = ssid;
               doc.latitude = latitude;

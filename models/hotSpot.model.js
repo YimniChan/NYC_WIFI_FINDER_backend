@@ -8,6 +8,7 @@ const hotSpotSchema = new Schema({
   zipCode: {type: String , required: true},
   type: { type: String, required: true }, 
   locationType: {type : String, required : true},
+  location: {type : String, required : true},
   provider: { type: String, required: true }, 
   ssid: { type: String, required: true }, 
   latitude: { type: Number },

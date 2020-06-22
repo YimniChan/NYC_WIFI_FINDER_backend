@@ -82,6 +82,7 @@ if(count == 0)
                     provider: converted[i].Provider,
                     ssid: converted[i].SSID,    
                     locationType: converted[i].Location_T,
+                    location: converted[i].Location,
                     latitude: converted[i].Latitude,
                     longitudes: converted[i].Longitude,
                      } 

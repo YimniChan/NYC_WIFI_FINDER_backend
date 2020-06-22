@@ -16,6 +16,7 @@ router.get("/", (req, res) => {
 router.get("/closeBy:zipCode", (req, res) => {
 
     const {zipCode} = req.params;
+    console.log(zipCode);
 
   hotSpot
     .find({zipCode})

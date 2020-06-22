@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 //DB Config
 dotenv.config();
-const mongoDB = process.env.MONGO_URI;
+const mongoDB = process.env.MONGODB_URI;
 
 if (!mongoDB) {
   throw new Error('You must provide a string to connect to MongoDB Atlas');

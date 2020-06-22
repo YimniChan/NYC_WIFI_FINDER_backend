@@ -13,12 +13,12 @@ router.get("/", (req, res) => {
 
 
 //GET borough location
-router.get("/closeBy:boroughName", (req, res) => {
+router.get("/closeBy:zipCode", (req, res) => {
 
-    const {boroughName} = req.params;
+    const {zipCode} = req.params;
 
   hotSpot
-    .find({boroughName})
+    .find({zipCode})
     .then((hotSpots) => res.json(hotSpots))
     .catch((err) => res.status(400).json("Error: " + err));
 });

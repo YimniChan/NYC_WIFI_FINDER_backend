@@ -5,7 +5,7 @@ const hotSpotSchema = new Schema({
 
   name: { type: String, required: true },
   boroughName: {type: String, required: true},
-  zipCode: {type: String , required: true},
+  zipCode: {type: Number , required: true},
   type: { type: String, required: true }, 
   locationType: {type : String, required : true},
   location: {type : String, required : true},

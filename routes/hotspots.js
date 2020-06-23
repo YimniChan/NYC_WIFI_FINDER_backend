@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const hotSpot = require("../models/hotSpot.model");
+const cors = require("cors");
 
 //GET all location
 router.get("/", (req, res) => {

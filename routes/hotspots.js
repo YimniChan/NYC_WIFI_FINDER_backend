@@ -1,17 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const hotSpot = require("../models/hotSpot.model");
-const cors = require("cors");
 
 //GET all location
 router.get("/", (req, res) => {
-  // hotSpot
-  //   .find()
-  //   .then((hotSpots) => res.json(hotSpots))
-  //   .catch((err) => res.status(400).json("Error: " + err));
-  res.send({
-    cookie: "monster",
-  });
+  hotSpot
+    .find()
+    .then((hotSpots) => res.json(hotSpots))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 //GET borough location
